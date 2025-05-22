@@ -13,16 +13,19 @@
     <div class="Cadastro">
         <h1>Faça seu Cadastro</h1>
         <form action="{% url 'ver_assunto'%}" method="POST"> {%csrf_token%}
-            <input type="text" name="Nome " placeholder="Digite o seu nome completo... "><br>
+            <input type="text" name="Nome" placeholder="Digite o seu nome completo... "><br>
             <br>
-            <input type="email" name="Email " placeholder="Digite o seu email... "><br>
+            <input type="email" name="Email" placeholder="Digite o seu email... "><br>
             <br>
-            <input type="email" name="Confirmar Email " placeholder="Digite o seu email novamente... "><br>
+            <input type="email" name="Confirmar_Email" placeholder="Digite o seu email novamente... "><br>
             <br>
-            <input type="password" name="Senha " placeholder="Crie uma senha... "><br>
+            <input type="password" name="Senha" placeholder="Crie uma senha... "><br>
             <br>
-            <input type="password" name="Confirmar Senha " placeholder="Confirme sua senha... "><br>
+            <input type="password" name="Confirmar_Senha" placeholder="Confirme sua senha... "><br>
             <br>
+            {% if erro %}
+                <p style="color: red;">{{ erro }}</p>
+            {% endif %}
             <input type="submit" value="Cadastrar">
 
         </form>

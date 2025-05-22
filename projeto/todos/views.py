@@ -6,9 +6,9 @@ def ver(request):
     if request.method == "POST":
         nome = request.POST.get('Nome')
         email = request.POST.get('Email')
-        confirmar_email = request.POST.get('Confirmar Email')
+        confirmar_email = request.POST.get('Confirmar_Email')
         senha = request.POST.get('Senha')
-        confirmar_senha = request.POST.get('Confirmar Senha')
+        confirmar_senha = request.POST.get('Confirmar_Senha')
 
         if email != confirmar_email or senha != confirmar_senha:
             return render(request, 'cadastro.html', {'erro': 'Erro na confirmação'})

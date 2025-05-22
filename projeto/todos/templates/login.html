@@ -18,7 +18,9 @@
             <input type="password" name="senha" placeholder="Digite a sua senha..."><br>
             <br>
             <input type="submit" value="Entrar">
-            
+            {% if erro %}
+                <p style="color: red;">{{ erro }}</p>
+            {% endif %}
         </form>
     </div>
 </body>
