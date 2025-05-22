@@ -11,9 +11,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-
-/* Caixa que envolve o formulário */
-
 .Cadastro {
     background-color: white;
     padding: 40px;
@@ -23,12 +20,28 @@ h1 {
     box-shadow: 0 10px 12px rgba(0, 0, 0, 0.15);
 }
 
+.button1:hover {
+    background-color: #357ae8;
+    color: white;
+}
 
-/* Botão moderno */
-
-.button1 {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 16px 24px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #dcdcdc;
+    border-radius: 24px;
+    font-size: 18px;
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
+}
+input[type="submit"]{
     background-color: #4285f4;
-    /* azul Google */
     color: white;
     border: none;
     padding: 12px 24px;
@@ -39,34 +52,7 @@ h1 {
     margin-top: 12px;
 }
 
-.button1:hover {
-    background-color: #357ae8;
-}
-
-
-/* Inputs estilo Google */
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    max-width: 500px;
-    /* aumentei de 400px para 500px */
-    padding: 16px 24px;
-    /* aumentei o padding para deixar mais alto */
-    margin: 10px 0;
-    box-sizing: border-box;
-    border: 1px solid #dcdcdc;
-    border-radius: 24px;
-    font-size: 18px;
-    /* fonte maior */
-    outline: none;
-    transition: box-shadow 0.3s ease-in-out;
-    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
-}
-
 input:focus {
     box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
     border-color: #4285f4;
 }
-/* estava dando erro aqui — faltava fechar corretamente */
