@@ -1,14 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
 </head>
 
 <body>
     <h1>Faça seu Login</h1>
+    <form action="{%url 'entrar_site'%}" method="get">{%csrf_token%}
+        <input type="email" name="Inserir Email" placeholder="Digite o seu email..."><br>
+        <br>
+        <input type="password" name="Inserir Senha" placeholder="Digite o sua senha...">
+    </form>
 </body>
 
 </html>

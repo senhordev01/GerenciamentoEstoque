@@ -1,6 +1,5 @@
 body {
     background-color: white;
-    /* fundo claro e limpo */
     text-align: center;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -21,7 +20,7 @@ h1 {
     border-radius: 12px;
     max-width: 500px;
     margin: 60px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -63,10 +62,11 @@ input[type="password"] {
     /* fonte maior */
     outline: none;
     transition: box-shadow 0.3s ease-in-out;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
 }
 
 input:focus {
     box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
     border-color: #4285f4;
 }
+/* estava dando erro aqui — faltava fechar corretamente */
