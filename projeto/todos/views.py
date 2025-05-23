@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Dados
+from .models import Dados, Produto
 from django.contrib.auth.hashers import make_password, check_password
 
 def ver(request):
@@ -37,3 +37,7 @@ def login(request):
             return render(request, 'login.html', {'erro': 'Senha incorreta'})
 
     return render(request, 'login.html')
+
+def lista_prdutos(request):
+    produtos = Produto.objects.all(estoque__gt=0)
+    return render(request, 'site.html', {'produtos': produtos})
