@@ -32,12 +32,12 @@ def login(request):
             return render(request, 'login.html', {'erro': 'Email não encontrado'})
         
         if check_password(senha, usuario.senha):
-            return render(request, 'site.html', {'usuario': usuario})
+            return redirect('site_primario')
         else:
             return render(request, 'login.html', {'erro': 'Senha incorreta'})
 
     return render(request, 'login.html')
 
-def lista_prdutos(request):
-    produtos = Produto.objects.all(estoque__gt=0)
+def lista_produtos(request):
+    produtos = Produto.objects.filter(estoque__gt=0, disponivel=True)
     return render(request, 'site.html', {'produtos': produtos})

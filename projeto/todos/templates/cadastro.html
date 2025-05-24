@@ -23,9 +23,8 @@
             <br>
             <input type="password" name="Confirmar_Senha" placeholder="Confirme sua senha... "><br>
             <br>
-            {% if erro %}
-                <p style="color: red;">{{ erro }}</p>
-            {% endif %}
+            <a href="{% url 'entrar_site' %}">Já tem uma conta? Faça login</a>
+            <br>
             <input type="submit" value="Cadastrar">
 
         </form>

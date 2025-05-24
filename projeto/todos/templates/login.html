@@ -17,11 +17,11 @@
             <br>
             <input type="password" name="senha" placeholder="Digite a sua senha..."><br>
             <br>
+            <a href="{%url 'ver_assunto' %}">Nao tem uma conta ? Faça seu Cadastro</a>
+            <br>
             <input type="submit" value="Entrar">
-            
-            {% if erro %}
-                <p style="color: red;">{{ erro }}</p>
-            {% endif %}
+
+
         </form>
     </div>
 </body>
