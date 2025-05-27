@@ -1,0 +1,22 @@
+{% extends 'todos/base.html' %}
+{% block title %}Login{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <h4>Login</h4>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <div class="d-flex gap-2">
+                    <input class="btn btn-info" type="submit" value="Login">
+                    <a class="btn btn-outline-primary" href="{% url 'register' %}">Registrar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

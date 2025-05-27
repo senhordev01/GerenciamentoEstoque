@@ -1,0 +1,68 @@
+{% extends 'todos/base.html' %}
+{% block title %}{{ header }}{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        {% if user.is_superuser %}
+                        <th>Actions</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.estoque }}</td>
+                        <td>{{ produto.categoria }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        {% if user.is_superuser %}
+                        <td>
+                            <div class="d-flex gap-2">
+                                <!-- Formulário para adicionar estoque -->
+                                <form method="POST" action="{% url 'add_stock' produto.id %}" class="d-flex align-items-center gap-2">
+                                    {% csrf_token %}
+                                    <input type="number" name="quantidade" min="1" class="form-control form-control-sm" style="width: 80px;" required>
+                                    <button type="submit" class="btn btn-sm btn-outline-success">+ Estoque</button>
+                                </form>
+
+                                <!-- Formulário para deletar produto -->
+                                <form method="POST" action="{% url 'delete_product' produto.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('Deseja realmente deletar o produto?');">
+                                        Deletar
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if user.is_superuser %}
+        <div class="col-md-4">
+            <form method="POST">
+                <h4>Add a New Product</h4>
+                <hr>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <button type="submit" class="btn btn-primary w-100">Add</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
