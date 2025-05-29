@@ -47,7 +47,7 @@ def lista_produtos(request):
     return render(request, 'site.html', {'produtos': produtos})
 
 
-# Create your views here.
+
 def pagar_produto(request):
     produtos = Produto.objects.filter(estoque__gt=0, disponivel=True)
     if request.method == 'POST':
@@ -55,7 +55,7 @@ def pagar_produto(request):
         if form.is_valid():
             email_logado = request.session.get('email_usuario_logado')
             if not email_logado:
-                return redirect('entrar_site')  # usuário não logado
+                return redirect('entrar_site') 
 
             pagamento = form.save(commit=False)
             pagamento.usuario = Dados.objects.get(email=email_logado)
@@ -79,6 +79,6 @@ def pagar_produto(request):
     return render(request, 'site.html', {'form': form, 'produtos': produtos})
 
 def pagamento_sucesso(request):
-    return render(request, 'pagamento_sucesso.html')  # form pode ser usado para exibir detalhes do pagamento, se necessário
+    return render(request, 'pagamento_sucesso.html')  
 
 
