@@ -10,19 +10,26 @@
 </head>
 
 <body>
-    <h1>Produtos</h1>
-    <ul>
-        {% for produto in produtos %}
-        <li>{{ produto.nome }} - R$ <b>{{ produto.preco }}</b> - Estoque: <b>{{ produto.estoque }}</b></li>
-        {% endfor %}
-    </ul>
+    <div class="sidebar">
+        <h1>Produtos</h1>
+        <ul>
+            {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R$ <b>{{ produto.preco }}</b><br>
+                Estoque: <b>{{ produto.estoque }}</b>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-    <h2>Faça seu pagamento</h2>
-    <h1>Produtos</h1>
-    <form action="{% url 'pagar_produto'%}" method="post">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">Realizar Pagamento</button>
-    </form>
+    <div class="content">
+        <h2>Faça seu pagamento</h2>
+        <form action="{% url 'pagar_produto' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Realizar Pagamento</button>
+        </form>
+    </div>
 </body>
 
 </html>
