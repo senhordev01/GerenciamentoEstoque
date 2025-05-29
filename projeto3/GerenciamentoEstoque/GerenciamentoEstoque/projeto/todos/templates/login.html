@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+
+<body>
+    <div class="Login">
+        <h1>Faça seu Login</h1>
+        <form action="{%url 'entrar_site'%}" method="POST">{%csrf_token%}
+            <input type="email" name="email" placeholder="Digite o seu email..."><br>
+            <br>
+            <input type="password" name="senha" placeholder="Digite a sua senha..."><br>
+            <br>
+            <a href="{%url 'ver_assunto' %}">Nao tem uma conta ? Faça seu Cadastro</a>
+            <br>
+            <input type="submit" value="Entrar">
+
+
+        </form>
+    </div>
+</body>
+
+</html>

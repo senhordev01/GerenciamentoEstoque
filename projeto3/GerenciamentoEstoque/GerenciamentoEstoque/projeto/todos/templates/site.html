@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site inicial</title>
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+</head>
+
+<body>
+    <h1>Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>{{ produto.nome }} - R$ <b>{{ produto.preco }}</b> - Estoque: <b>{{ produto.estoque }}</b></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Faça seu pagamento</h2>
+    <h1>Produtos</h1>
+    <form action="{% url 'pagar_produto'%}" method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Realizar Pagamento</button>
+    </form>
+</body>
+
+</html>
